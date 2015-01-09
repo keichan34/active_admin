@@ -14,7 +14,6 @@
     end
   end
 
-  require 'nkf'
-  csv_output = NKF.nkf('-s', csv_output)
+  csv_output = csv_output.encode(Encoding::Shift_JIS, invalid: :replace, replace: '?', undef: :replace)
 %>
 <%= csv_output.html_safe %>
